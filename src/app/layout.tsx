@@ -1,4 +1,10 @@
 import type { Metadata, Viewport } from "next";
+import "@fontsource-variable/geist/wght.css";
+import "@fontsource-variable/geist-mono/wght.css";
+import "@fontsource/instrument-serif/400.css";
+import "@fontsource/instrument-serif/400-italic.css";
+import "@fontsource-variable/newsreader/wght.css";
+import "@fontsource-variable/newsreader/wght-italic.css";
 import "./globals.css";
 import { ThemeProvider } from "@/components/site/theme-provider";
 
@@ -14,7 +20,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#080706",
+  themeColor: "#090807",
   colorScheme: "dark",
 };
 

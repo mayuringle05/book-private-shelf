@@ -29,6 +29,17 @@ The production UI follows an editorial-luxury direction rather than a feed or te
 - Paper-like chapter reader with heavy motion deliberately removed.
 - Reduced-motion support.
 
+### Typography and palette
+
+The production type system is self-hosted and version-pinned through Fontsource:
+
+- Instrument Serif — brand/display typography.
+- Geist — navigation, controls and supporting UI copy.
+- Geist Mono — indices and structured production data.
+- Newsreader — long-form chapter reading.
+
+The core palette is Obsidian `#090807`, Ivory `#F3EDE3`, Burnished Copper `#C98762`, Oxblood `#682F2D`, Tobacco `#80634E`, and Warm Grey `#AAA097`.
+
 See `docs/UI_PRODUCTION_2026.md` and `docs/VENGEANCE-MAPPING.md`.
 
 ## Production engine
@@ -54,9 +65,7 @@ Vengeance UI is the animation/component interaction source for the production bu
 - Pinned commit: `813d9c192b1f82cb36db3d5af93c2ac7d3285ae4`
 - Registry: `https://raw.githubusercontent.com/Ashutoshx7/VengeanceUI/813d9c192b1f82cb36db3d5af93c2ac7d3285ae4/public/r/{name}.json`
 
-The lock is stored in `.vengeance-lock.json` and `components.json`. `scripts/sync-vengeance.mjs` syncs only components used by production surfaces. The only post-sync source change is visible operator copy in Generate Button (`Generate` → `Copy Work Packet`, `Generating` → `Copying Packet`); the sync fails if that pinned-source patch can no longer be applied safely.
-
-Both `npm run dev` and `npm run build` run the pinned Vengeance sync automatically, so a clean checkout cannot accidentally build without the required UI source.
+The lock is stored in `.vengeance-lock.json` and `components.json`. Production component source is vendored in `src/components/ui/`, so normal development and production builds are self-contained. `npm run vengeance:sync` is the explicit, pinned update/verification path; it is not part of `npm run dev` or `npm run build`.
 
 ## Local setup
 
@@ -99,18 +108,19 @@ There is no per-book frontend implementation step.
 
 ```text
 install dependencies
-→ sync pinned Vengeance UI
+→ verify/update pinned Vengeance source on the feature branch
 → ensure/migrate/seed PostgreSQL
 → contract checks
 → TypeScript
 → ESLint
 → Next.js production build
+→ live route smoke + desktop/mobile visual captures
 ```
 
 Useful local commands:
 
 ```bash
-npm run vengeance:sync
+npm run vengeance:sync   # explicit pinned UI update/verification
 npm run db:setup
 npm run contract-check
 npm run typecheck
@@ -123,7 +133,7 @@ npm run build
 - `src/app/` — public pages, reader, operator pages, API routes.
 - `src/components/site/` — BOOK public composition around Vengeance UI.
 - `src/components/admin/` — production console.
-- `src/components/ui/` — generated from the pinned Vengeance registry during sync/build.
+- `src/components/ui/` — vendored production Vengeance source.
 - `src/lib/repository.ts` — production state transitions and content access.
 - `src/lib/work-packet.ts` — smallest-gap work packet generation.
 - `src/lib/content-schema.ts` — strict server validation.
