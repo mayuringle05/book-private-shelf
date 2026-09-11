@@ -33,8 +33,8 @@ export function ShelfExperience({ books, compact = false }: { books: BookWithPro
     <div>
       <BooksShowcase
         books={mapped}
-        heroTitle={compact ? "The collection" : "Three volumes. One shelf."}
-        navTitle="BOOK / Founding collection"
+        heroTitle=" "
+        navTitle={compact ? "BOOK / The collection" : "BOOK / Founding collection"}
         showDetailPanel={false}
         showCarousel
         themeColors={{
@@ -47,7 +47,7 @@ export function ShelfExperience({ books, compact = false }: { books: BookWithPro
           bgDark: "#080706",
           foregroundDark: "#F2EBDD",
         }}
-        className={compact ? "min-h-[760px]" : "min-h-[900px]"}
+        className={`${compact ? "min-h-[760px]" : "min-h-[900px]"} !bg-[#080706] !text-[#F2EBDD]`}
         onBookSelect={setSelected}
       />
 
@@ -71,7 +71,7 @@ export function ShelfExperience({ books, compact = false }: { books: BookWithPro
           {selectedBook ? (
             <AnimatedButton
               onClick={() => router.push(`/books/${selectedBook.slug}`)}
-              className="!rounded-full !border-white/12 !px-6 !py-2.5"
+              className="!rounded-full !border-white/12 !px-6 !py-2.5 !text-[#F2EBDD]"
             >
               {selectedBook.status === "published" ? "Open volume" : "Explore volume"}
               {selectedBook.status === "published" ? <ArrowRight className="ml-2 h-4 w-4" /> : <LockKeyhole className="ml-2 h-4 w-4" />}
