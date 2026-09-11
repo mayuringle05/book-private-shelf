@@ -1,7 +1,16 @@
+import fs from "node:fs";
+import { loadEnvFile } from "node:process";
 import pg from "pg";
+
+if (!process.env.DATABASE_URL && fs.existsSync(".env")) {
+  loadEnvFile(".env");
+}
+
 const { Client } = pg;
 const url = process.env.DATABASE_URL;
-if (!url) throw new Error("DATABASE_URL is required");
+if (!url) {
+  throw new Error("DATABASE_URL is required. Create .env from .env.example or export DATABASE_URL before seeding.");
+}
 const ssl = process.env.DATABASE_SSL === "true" ? { rejectUnauthorized: false } : false;
 const client = new Client({ connectionString: url, ssl });
 await client.connect();
