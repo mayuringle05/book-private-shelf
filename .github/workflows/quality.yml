@@ -64,3 +64,34 @@ jobs:
 
       - name: Production build
         run: npm run build
+
+      - name: Runtime smoke test
+        shell: bash
+        run: |
+          npm start > /tmp/book-next.log 2>&1 &
+          APP_PID=$!
+          trap 'kill "$APP_PID" 2>/dev/null || true' EXIT
+
+          ready=0
+          for attempt in {1..30}; do
+            if curl --fail --silent --show-error http://127.0.0.1:3000/ > /tmp/book-home.html; then
+              ready=1
+              break
+            fi
+            sleep 1
+          done
+
+          if [ "$ready" -ne 1 ]; then
+            cat /tmp/book-next.log
+            exit 1
+          fi
+
+          grep -q "Attraction is" /tmp/book-home.html
+          curl --fail --silent --show-error http://127.0.0.1:3000/library > /dev/null
+          curl --fail --silent --show-error http://127.0.0.1:3000/books/magnetic-presence > /dev/null
+          curl --fail --silent --show-error http://127.0.0.1:3000/admin > /dev/null
+          curl --fail --silent --show-error http://127.0.0.1:3000/api/admin/status > /dev/null
+
+          kill "$APP_PID"
+          wait "$APP_PID" 2>/dev/null || true
+          trap - EXIT
