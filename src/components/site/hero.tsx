@@ -25,8 +25,8 @@ function RevealWords({ text, delay = 0 }: { text: string; delay?: number }) {
         <motion.span
           key={`${word}-${index}`}
           className="book-word-glow mr-[.2em] inline-block"
-          initial={reducedMotion ? false : { opacity: 0, y: 38, rotateX: -28, filter: "blur(10px)" }}
-          animate={{ opacity: 1, y: 0, rotateX: 0, filter: "blur(0px)" }}
+          initial={reducedMotion ? false : { y: 30, rotateX: -20 }}
+          animate={{ y: 0, rotateX: 0 }}
           transition={{ duration: reducedMotion ? 0 : 0.82, delay: reducedMotion ? 0 : delay + index * 0.12, ease: [0.22, 1, 0.36, 1] }}
         >
           {word}
@@ -98,8 +98,8 @@ export function Hero({ bookCount, publishedCount }: { bookCount: number; publish
           </h1>
           <motion.p
             className="book-display book-display-lg mt-8 max-w-5xl text-[var(--book-copper-soft)]"
-            initial={reducedMotion ? false : { opacity: 0, y: 22 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={reducedMotion ? false : { y: 18 }}
+            animate={{ y: 0 }}
             transition={{ duration: reducedMotion ? 0 : 0.8, delay: reducedMotion ? 0 : 0.9, ease: [0.22, 1, 0.36, 1] }}
           >
             Learn how to read it.
@@ -107,7 +107,7 @@ export function Hero({ bookCount, publishedCount }: { bookCount: number; publish
           <motion.div
             aria-hidden="true"
             className="mt-5 h-px max-w-[16rem] origin-left bg-gradient-to-r from-[var(--book-copper)] via-[var(--book-copper-soft)] to-transparent"
-            initial={reducedMotion ? false : { scaleX: 0, opacity: 0 }}
+            initial={reducedMotion ? false : { scaleX: 0, opacity: 0.35 }}
             animate={{ scaleX: 1, opacity: 0.8 }}
             transition={{ duration: reducedMotion ? 0 : 1.1, delay: reducedMotion ? 0 : 1.1, ease: [0.22, 1, 0.36, 1] }}
           />
