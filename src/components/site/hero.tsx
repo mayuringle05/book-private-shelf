@@ -15,7 +15,7 @@ export function Hero() {
         <AuroraHero title=" " showSwitch={false} className="!h-full !min-h-full" />
       </div>
 
-      <div className="book-shell relative z-10 flex min-h-[100svh] flex-col justify-between pb-8 pt-28 md:pb-12 md:pt-32">
+      <div className="book-shell relative z-10 flex min-h-[100svh] flex-col justify-between pb-32 pt-28 md:pb-12 md:pt-32">
         <div className="flex items-start justify-between gap-6 border-b book-rule pb-5">
           <div className="flex items-center gap-4">
             <span className="book-kicker text-[#f2ebdd]">BOOK</span>
@@ -64,7 +64,7 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="mt-8 flex items-center gap-2 text-[10px] uppercase tracking-[.22em] text-white/32">
+        <div className="mt-8 hidden items-center gap-2 text-[10px] uppercase tracking-[.22em] text-white/32 sm:flex">
           <ArrowDown className="h-3.5 w-3.5" /> Browse slowly
         </div>
       </div>
