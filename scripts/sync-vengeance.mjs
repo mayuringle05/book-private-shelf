@@ -60,17 +60,19 @@ if (generateSource === originalGenerateSource) {
 
 writeFileSync(generateButtonPath, generateSource);
 
-// Instrument Serif uses finer hairlines than the fallback serif used by the upstream demo.
-// Vengeance's permanent 0.4px edge blur plus its alpha-threshold filter can erase those
-// strokes entirely. Keep the same GSAP/SplitText/SVG-filter animation and only reduce the
-// edge softening so the production editorial font remains visible.
+// Instrument Serif has fine hairlines that need a gentler alpha threshold than the
+// heavier demo face used upstream. Keep Vengeance's GSAP/SplitText/SVG-filter reveal,
+// but remove permanent edge blur and lower the alpha cutoff so desktop and mobile
+// editorial type both survive the filter cleanly.
 const gooeyPath = resolve("src/components/ui/gooey-text-reveal.tsx");
 let gooeySource = readFileSync(gooeyPath, "utf8");
 const originalGooeySource = gooeySource;
-gooeySource = gooeySource.replace("const LINE_EDGE_BLUR = 0.4;", "const LINE_EDGE_BLUR = 0.08;");
+gooeySource = gooeySource
+  .replace("const LINE_EDGE_BLUR = 0.4;", "const LINE_EDGE_BLUR = 0;")
+  .replace("0 0 0 255 -140", "0 0 0 255 -72");
 
-if (gooeySource === originalGooeySource) {
-  throw new Error("Pinned Gooey Text Reveal source changed unexpectedly; BOOK serif-compatibility patch was not applied.");
+if (gooeySource === originalGooeySource || !gooeySource.includes("const LINE_EDGE_BLUR = 0;") || !gooeySource.includes("0 0 0 255 -72")) {
+  throw new Error("Pinned Gooey Text Reveal source changed unexpectedly; BOOK serif-compatibility patch was not fully applied.");
 }
 
 writeFileSync(gooeyPath, gooeySource);
