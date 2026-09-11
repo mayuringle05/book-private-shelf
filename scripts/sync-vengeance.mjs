@@ -24,14 +24,27 @@ const components = [
   "highlight-grid"
 ];
 
-console.log(`Syncing ${components.length} production Vengeance UI components from the pinned upstream registry...`);
-const result = spawnSync(
-  "npm",
-  ["exec", "--", "shadcn", "add", "--overwrite", ...components.map((name) => `@vengeanceui/${name}`)],
-  { stdio: "inherit", shell: process.platform === "win32" },
-);
+function syncRegistry() {
+  return spawnSync(
+    "npm",
+    ["exec", "--", "shadcn", "add", "--overwrite", ...components.map((name) => `@vengeanceui/${name}`)],
+    { stdio: "inherit", shell: process.platform === "win32" },
+  );
+}
 
-if (result.status !== 0) process.exit(result.status ?? 1);
+console.log(`Syncing ${components.length} production Vengeance UI components from the pinned upstream registry...`);
+let result;
+for (let attempt = 1; attempt <= 4; attempt += 1) {
+  result = syncRegistry();
+  if (result.status === 0) break;
+  if (attempt < 4) {
+    const delaySeconds = attempt * 3;
+    console.warn(`Vengeance registry sync attempt ${attempt} failed. Retrying in ${delaySeconds}s...`);
+    spawnSync(process.platform === "win32" ? "timeout" : "sleep", [String(delaySeconds)], { stdio: "inherit" });
+  }
+}
+
+if (!result || result.status !== 0) process.exit(result?.status ?? 1);
 
 const generateButtonPath = resolve("src/components/ui/generate-button.tsx");
 let generateSource = readFileSync(generateButtonPath, "utf8");
