@@ -22,42 +22,61 @@ export function BookEntry({ book, units }: { book: BookWithProgress; units: Unit
     ) : (
       <div className="space-y-4 text-left text-xs leading-5 text-neutral-700">
         <p>{book.positioning}</p>
-        <p>This book unlocks for reading only after its complete editorial production pass is explicitly published.</p>
+        <p>This volume becomes readable only after its complete editorial production pass is explicitly published.</p>
       </div>
     ),
   }));
   const first = chapterUnits[0];
 
   return (
-    <div className="grid items-center gap-8 lg:grid-cols-[1.2fr_.8fr]">
-      <div className="min-h-[650px] overflow-hidden">
-        <InteractiveBook
-          coverImage={book.cover_image || coverForSlug(book.slug)}
-          bookTitle={book.title}
-          bookAuthor={book.author_name}
-          pages={pages}
-          width={310}
-          height={450}
-          className="mx-auto origin-center scale-[.78] sm:scale-90 lg:scale-100"
-        />
-      </div>
-      <div className="pb-16 lg:pb-0">
-        <p className="book-kicker">{book.status === "published" ? "Published edition" : "Founding edition"}</p>
-        <h1 className="book-display mt-5 text-6xl leading-[.9] md:text-8xl">{book.title}</h1>
-        <p className="mt-5 max-w-xl text-xl leading-8 text-white/62">{book.subtitle}</p>
-        <p className="mt-8 max-w-xl text-sm leading-7 text-white/48">{book.description}</p>
-        <div className="mt-10 border-y border-white/10 py-5 text-xs uppercase tracking-[.17em] text-white/40">
-          {book.status === "published" ? `${chapterUnits.length} chapters · ready to read` : "Editorial production not yet published"}
+    <div className="grid min-h-[760px] items-center gap-12 lg:grid-cols-12 lg:gap-8">
+      <div className="order-2 pb-14 lg:order-1 lg:col-span-5 lg:pb-0">
+        <div className="flex items-center gap-4">
+          <span className="book-index text-[10px] text-white/30">VOL. {String(book.sort_order).padStart(2, "0")}</span>
+          <span className="h-px w-10 bg-white/16" />
+          <span className="book-kicker">{book.status === "published" ? "Published edition" : "Founding edition"}</span>
         </div>
-        <div className="mt-8">
+
+        <h1 className="book-display mt-7 text-[clamp(4.7rem,8vw,8.7rem)] leading-[.78]">{book.title}</h1>
+        <p className="mt-7 max-w-xl text-xl leading-8 text-white/64 md:text-2xl md:leading-9">{book.subtitle}</p>
+        <p className="book-copy mt-8 max-w-xl text-sm md:text-base">{book.description}</p>
+
+        <div className="mt-10 grid grid-cols-2 gap-6 border-y book-rule py-6 text-[10px] uppercase tracking-[.16em] text-white/36">
+          <div>
+            <span className="block text-white/68">Status</span>
+            <span className="mt-2 block">{book.status === "published" ? "Ready to read" : "Editorial production"}</span>
+          </div>
+          <div>
+            <span className="block text-white/68">Reading surface</span>
+            <span className="mt-2 block">{book.status === "published" ? `${chapterUnits.length} chapters` : "Locked until publish"}</span>
+          </div>
+        </div>
+
+        <div className="mt-8 flex items-center gap-4">
           <AnimatedButton
             disabled={!first || book.status !== "published"}
             onClick={() => first && router.push(`/read/${book.slug}/${first.unit_key}`)}
             className="!rounded-full !px-6 !py-3 disabled:opacity-40"
           >
-            {first && book.status === "published" ? <>Begin reading <ArrowRight className="ml-2 h-4 w-4" /></> : <>Reading locked <LockKeyhole className="ml-2 h-4 w-4" /></>}
+            {first && book.status === "published" ? (
+              <>Begin reading <ArrowRight className="ml-2 h-4 w-4" /></>
+            ) : (
+              <>Reading locked <LockKeyhole className="ml-2 h-4 w-4" /></>
+            )}
           </AnimatedButton>
         </div>
+      </div>
+
+      <div className="order-1 min-h-[620px] overflow-hidden lg:order-2 lg:col-span-7 lg:min-h-[760px]">
+        <InteractiveBook
+          coverImage={book.cover_image || coverForSlug(book.slug)}
+          bookTitle={book.title}
+          bookAuthor={book.author_name}
+          pages={pages}
+          width={340}
+          height={500}
+          className="mx-auto origin-center scale-[.72] sm:scale-[.88] lg:scale-100"
+        />
       </div>
     </div>
   );
