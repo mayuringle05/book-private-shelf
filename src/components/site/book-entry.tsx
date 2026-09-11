@@ -37,19 +37,13 @@ export function BookEntry({ book, units }: { book: BookWithProgress; units: Unit
           <span className="book-kicker">{book.status === "published" ? "Published edition" : "Founding edition"}</span>
         </div>
 
-        <h1 className="book-display mt-7 text-[clamp(4.7rem,8vw,8.7rem)] leading-[.78]">{book.title}</h1>
+        <h1 className="book-display book-display-xl mt-7">{book.title}</h1>
         <p className="mt-7 max-w-xl text-xl leading-8 text-white/64 md:text-2xl md:leading-9">{book.subtitle}</p>
-        <p className="book-copy mt-8 max-w-xl text-sm md:text-base">{book.description}</p>
+        <p className="book-copy mt-8 max-w-xl">{book.description}</p>
 
         <div className="mt-10 grid grid-cols-2 gap-6 border-y book-rule py-6 text-[10px] uppercase tracking-[.16em] text-white/36">
-          <div>
-            <span className="block text-white/68">Status</span>
-            <span className="mt-2 block">{book.status === "published" ? "Ready to read" : "Editorial production"}</span>
-          </div>
-          <div>
-            <span className="block text-white/68">Reading surface</span>
-            <span className="mt-2 block">{book.status === "published" ? `${chapterUnits.length} chapters` : "Locked until publish"}</span>
-          </div>
+          <div><span className="block text-white/68">Status</span><span className="mt-2 block">{book.status === "published" ? "Ready to read" : "Editorial production"}</span></div>
+          <div><span className="block text-white/68">Reading surface</span><span className="mt-2 block">{book.status === "published" ? `${chapterUnits.length} chapters` : "Locked until publish"}</span></div>
         </div>
 
         <div className="mt-8 flex items-center gap-4">
@@ -58,11 +52,7 @@ export function BookEntry({ book, units }: { book: BookWithProgress; units: Unit
             onClick={() => first && router.push(`/read/${book.slug}/${first.unit_key}`)}
             className="!rounded-full !px-6 !py-3 disabled:opacity-40"
           >
-            {first && book.status === "published" ? (
-              <>Begin reading <ArrowRight className="ml-2 h-4 w-4" /></>
-            ) : (
-              <>Reading locked <LockKeyhole className="ml-2 h-4 w-4" /></>
-            )}
+            {first && book.status === "published" ? <>Begin reading <ArrowRight className="ml-2 h-4 w-4" /></> : <>Reading locked <LockKeyhole className="ml-2 h-4 w-4" /></>}
           </AnimatedButton>
         </div>
       </div>

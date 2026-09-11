@@ -9,11 +9,11 @@ export function SiteFooter() {
         headingLines={["BOOK", "PRIVATE SHELF"]}
         leftImage="/covers/magnetic-presence.svg"
         rightImage="/covers/authentic-attraction.svg"
-        background="#080706"
-        textColor="#F3EBDD"
-        charColor="#7A5139"
-        hoverColor="#D59A74"
-        hoverCharColor="#140F0C"
+        background="#090807"
+        textColor="#F3EDE3"
+        charColor="#80634E"
+        hoverColor="#C98762"
+        hoverCharColor="#181411"
         columns={56}
         cellSize={18}
         fontSize={14}

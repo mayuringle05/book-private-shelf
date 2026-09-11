@@ -20,11 +20,11 @@ export function ShelfExperience({ books, compact = false }: { books: BookWithPro
     stars: 0,
     desc: book.description,
     images: { front: book.cover_image || coverForSlug(book.slug) },
-    edge: "#e8dfd1",
-    backBg: "#151210",
-    backInk: "#f2ebdd",
+    edge: "#E9E0D3",
+    backBg: "#181411",
+    backInk: "#F3EDE3",
     spineBg: book.accent_hex,
-    spineInk: "#120e0c",
+    spineInk: "#181411",
   })), [books]);
 
   const selectedBook = selected ? books.find((book) => book.slug === selected.id) : null;
@@ -38,27 +38,23 @@ export function ShelfExperience({ books, compact = false }: { books: BookWithPro
         showDetailPanel={false}
         showCarousel
         themeColors={{
-          navy: "#080706",
-          pink: "#D39A76",
-          cream: "#F2EBDD",
-          lav: "#B9AFA4",
-          peri: "#8F7BAE",
-          bg: "#080706",
-          bgDark: "#080706",
-          foregroundDark: "#F2EBDD",
+          navy: "#090807",
+          pink: "#C98762",
+          cream: "#F3EDE3",
+          lav: "#AAA097",
+          peri: "#80634E",
+          bg: "#090807",
+          bgDark: "#090807",
+          foregroundDark: "#F3EDE3",
         }}
-        className={`${compact ? "min-h-[760px]" : "min-h-[900px]"} !bg-[#080706] !text-[#F2EBDD]`}
+        className={`${compact ? "min-h-[760px]" : "min-h-[900px]"} !bg-[#090807] !text-[#F3EDE3]`}
         onBookSelect={setSelected}
       />
 
       <div className="book-shell grid min-h-28 gap-5 border-t book-rule py-6 md:grid-cols-12 md:items-center">
-        <div className="md:col-span-2">
-          <span className="book-kicker">Selected volume</span>
-        </div>
+        <div className="md:col-span-2"><span className="book-kicker">Selected volume</span></div>
         <div className="md:col-span-6">
-          <p className="book-display text-2xl text-white/86 md:text-3xl">
-            {selectedBook ? selectedBook.title : "Choose a book from the shelf"}
-          </p>
+          <p className="book-display text-2xl text-white/86 md:text-3xl">{selectedBook ? selectedBook.title : "Choose a book from the shelf"}</p>
           <p className="mt-2 text-xs leading-5 text-white/38">
             {selectedBook
               ? selectedBook.status === "published"
@@ -71,7 +67,7 @@ export function ShelfExperience({ books, compact = false }: { books: BookWithPro
           {selectedBook ? (
             <AnimatedButton
               onClick={() => router.push(`/books/${selectedBook.slug}`)}
-              className="!rounded-full !border-white/12 !px-6 !py-2.5 !text-[#F2EBDD]"
+              className="!rounded-full !border-white/12 !px-6 !py-2.5 !text-[var(--book-ink)]"
             >
               {selectedBook.status === "published" ? "Open volume" : "Explore volume"}
               {selectedBook.status === "published" ? <ArrowRight className="ml-2 h-4 w-4" /> : <LockKeyhole className="ml-2 h-4 w-4" />}

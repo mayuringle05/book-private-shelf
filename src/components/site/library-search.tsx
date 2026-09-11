@@ -16,7 +16,7 @@ export function LibrarySearch({ books }: { books: BookWithProgress[] }) {
     <>
       <AnimatedButton
         onClick={() => setOpen(true)}
-        className="!rounded-full !border-white/15 !bg-white/[.06] !px-5 !py-2.5 !text-[#F2EBDD]"
+        className="!rounded-full !border-white/15 !bg-white/[.06] !px-5 !py-2.5 !text-[var(--book-ink)]"
       >
         <Search className="mr-2 h-4 w-4" /> Search shelf
         <span className="ml-3 text-[10px] text-white/38">⌘K</span>
