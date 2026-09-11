@@ -26,10 +26,12 @@ if (!migration.includes("UNIQUE (book_id, unit_key)")) failures.push("unit upser
 const repository = readFileSync("src/lib/repository.ts", "utf8");
 if (!repository.includes("status <> 'published'")) failures.push("prior-book publish lock missing");
 if (!repository.includes("status <> 'complete' ORDER BY sequence LIMIT 1")) failures.push("smallest-incomplete-unit selector missing");
+if (!repository.includes("Book must be complete before publishing.")) failures.push("manual publish completion gate missing");
 
 const validation = readFileSync("src/lib/content-schema.ts", "utf8");
 if (!validation.includes("recomputeWordCount")) failures.push("server word recount missing");
-if (!validation.includes("complete: deduped.length === 0")) failures.push("completion validation gate missing");
+if (!/complete\s*:\s*deduped\.length\s*===\s*0/.test(validation)) failures.push("completion validation gate missing");
+if (!/savable\s*:\s*true/.test(validation)) failures.push("partial-content persistence gate missing");
 
 const admin = readFileSync("src/components/admin/admin-console.tsx", "utf8");
 if (!admin.includes("Copy Work Packet") || !admin.includes("Paste &amp; Validate")) failures.push("two admin chapter actions missing");

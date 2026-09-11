@@ -1,4 +1,41 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1200">
-<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#0e1718"/><stop offset="1" stop-color="#23484a"/></linearGradient></defs>
-<rect width="800" height="1200" fill="url(#g)"/><g opacity=".5"><path d="M80 260H720M80 380H720M80 500H720M80 620H720" stroke="#8fd0cf" stroke-width="1"/><path d="M180 180V720M340 180V720M500 180V720M660 180V720" stroke="#8fd0cf" stroke-width="1"/></g><path d="M118 650 C260 510 315 560 420 400 S610 230 705 300" fill="none" stroke="#e7fff9" stroke-width="4"/><circle cx="118" cy="650" r="14" fill="#e7fff9"/><circle cx="705" cy="300" r="14" fill="#e7fff9"/><text x="78" y="120" fill="#dff0ef" font-family="Georgia,serif" font-size="34" letter-spacing="9">BOOK</text><text x="78" y="850" fill="#f5ffff" font-family="Georgia,serif" font-size="77">MODERN</text><text x="78" y="932" fill="#f5ffff" font-family="Georgia,serif" font-size="77">DATING</text><text x="82" y="1010" fill="#afd0cf" font-family="Arial,sans-serif" font-size="23" letter-spacing="3">THE PRIVATE SHELF</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1200" role="img" aria-labelledby="title desc">
+  <title id="title">Modern Dating — BOOK</title>
+  <desc id="desc">Editorial deep green book cover with a measured coordinate path representing navigation through modern dating.</desc>
+  <defs>
+    <filter id="paper" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.72" numOctaves="3" seed="47" result="n"/>
+      <feColorMatrix in="n" type="saturate" values="0" result="mono"/>
+      <feComponentTransfer in="mono" result="soft"><feFuncA type="table" tableValues="0 0.05"/></feComponentTransfer>
+      <feBlend in="SourceGraphic" in2="soft" mode="soft-light"/>
+    </filter>
+  </defs>
+  <rect width="800" height="1200" fill="#173E3B"/>
+  <g filter="url(#paper)">
+    <rect x="44" y="44" width="712" height="1112" fill="none" stroke="#E8EEE7" stroke-opacity=".34"/>
+    <text x="76" y="102" fill="#EFF3EC" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="700" letter-spacing="8">BOOK</text>
+    <text x="724" y="102" fill="#EFF3EC" font-family="Arial,Helvetica,sans-serif" font-size="18" text-anchor="end" letter-spacing="4">VOL. 03</text>
+    <line x1="76" y1="139" x2="724" y2="139" stroke="#E8EEE7" stroke-opacity=".38"/>
+
+    <g transform="translate(75 240)" fill="none">
+      <g stroke="#DCE8E1" stroke-opacity=".14">
+        <path d="M0 0H650M0 105H650M0 210H650M0 315H650M0 420H650"/>
+        <path d="M0 0V420M130 0V420M260 0V420M390 0V420M520 0V420M650 0V420"/>
+      </g>
+      <path d="M34 354 C118 292 158 295 224 228 C299 151 342 198 397 128 C455 54 520 63 612 26" stroke="#F1E9D9" stroke-width="3.5"/>
+      <circle cx="34" cy="354" r="10" fill="#D39A76" stroke="none"/>
+      <circle cx="224" cy="228" r="8" fill="#F1E9D9" stroke="none"/>
+      <circle cx="397" cy="128" r="8" fill="#F1E9D9" stroke="none"/>
+      <circle cx="612" cy="26" r="10" fill="#D39A76" stroke="none"/>
+      <path d="M34 380V406M612 52V78" stroke="#DCE8E1" stroke-opacity=".5"/>
+      <text x="34" y="416" fill="#DCE8E1" font-family="Arial,Helvetica,sans-serif" font-size="13" letter-spacing="2">START WITH CLARITY</text>
+    </g>
+
+    <text x="76" y="784" fill="#DDE8E1" font-family="Georgia,'Times New Roman',serif" font-size="26" font-style="italic">A clearer map for apps, ambiguity,</text>
+    <text x="76" y="817" fill="#DDE8E1" font-family="Georgia,'Times New Roman',serif" font-size="26" font-style="italic">and real-world connection.</text>
+    <text x="72" y="930" fill="#F5F3EA" font-family="Georgia,'Times New Roman',serif" font-size="83" letter-spacing="-3">MODERN</text>
+    <text x="72" y="1015" fill="#F5F3EA" font-family="Georgia,'Times New Roman',serif" font-size="83" letter-spacing="-3">DATING</text>
+    <line x1="76" y1="1072" x2="724" y2="1072" stroke="#E8EEE7" stroke-opacity=".38"/>
+    <text x="76" y="1114" fill="#E5EDE7" font-family="Arial,Helvetica,sans-serif" font-size="17" letter-spacing="4">THE PRIVATE SHELF</text>
+    <text x="724" y="1114" fill="#E5EDE7" font-family="Arial,Helvetica,sans-serif" font-size="17" text-anchor="end" letter-spacing="3">ORIGINAL EDITION</text>
+  </g>
 </svg>
