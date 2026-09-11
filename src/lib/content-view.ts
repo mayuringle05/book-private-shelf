@@ -1,0 +1,5 @@
+import type { UnitRecord } from "@/lib/types";
+
+export function unitTitle(unit: UnitRecord) { const value = unit.content?.title; return typeof value === "string" && value.trim() ? value : unit.title_hint || unit.unit_key.replaceAll("_", " "); }
+export function unitSummary(unit: UnitRecord) { const content=unit.content??{}; for (const key of ["summary","opening","introduction","closing"]) { const value=content[key]; if (typeof value === "string" && value.trim()) return value.trim(); } const sections=content.sections; if (Array.isArray(sections)&&sections[0]&&typeof sections[0] === "object") { const body=(sections[0] as Record<string,unknown>).body; if (typeof body === "string") return body.slice(0,220); } return "This unit is ready on the shelf."; }
+export function chapterSections(unit: UnitRecord): {heading:string;body:string}[] { const raw=unit.content?.sections; if (!Array.isArray(raw)) return []; return raw.flatMap((item)=>{ if (!item||typeof item!=="object") return []; const row=item as Record<string,unknown>; return typeof row.heading==="string"&&typeof row.body==="string"?[{heading:row.heading,body:row.body}]:[]; }); }

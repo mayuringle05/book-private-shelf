@@ -1,0 +1,2 @@
+import Link from "next/link";
+export default function NotFound() { return <main className="reader-paper flex min-h-screen items-center justify-center p-8 text-center"><div><p className="text-xs uppercase tracking-[.2em] text-black/45">Private shelf</p><h1 className="book-display mt-5 text-5xl">This chapter is not published.</h1><Link href="/library" className="mt-8 inline-block border-b border-black/20 pb-1 text-sm text-black/50">Return to the shelf</Link></div></main>; }
