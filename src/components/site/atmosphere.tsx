@@ -2,16 +2,15 @@
 
 import { FluidMorphBg } from "@/components/ui/fluid-morph-bg";
 
-export function Atmosphere() {
+export function Atmosphere({ className = "" }: { className?: string }) {
   return (
-    <div className="pointer-events-none absolute inset-0 overflow-hidden opacity-[.18]">
+    <div className={`pointer-events-none absolute inset-0 overflow-hidden opacity-[.24] ${className}`} aria-hidden="true">
       <FluidMorphBg
         className="absolute inset-0 h-full w-full"
-        duration={12}
-        colors={["#3a241b", "#6b3f2d", "#8d5b3f", "#39211a", "#1a1210"]}
-        backgroundColor="#090807"
+        duration={14}
+        colors={["#2a1712", "#5d3528", "#8f6047", "#241715", "#3a2b39", "#19201d", "#6d4a3b"]}
+        backgroundColor="#080706"
       />
-      <div className="absolute inset-0 bg-[linear-gradient(to_bottom,#090807_0%,transparent_30%,transparent_70%,#090807_100%)]" />
     </div>
   );
 }
