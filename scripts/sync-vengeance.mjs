@@ -2,6 +2,8 @@ import { spawnSync } from "node:child_process";
 import { readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 
+// Production surface only. Keep the synced registry minimal so unused demo components
+// cannot pull extra runtime/type dependencies into clean builds.
 const components = [
   "aurora-hero",
   "gooey-text-reveal",
@@ -9,17 +11,11 @@ const components = [
   "glass-dock",
   "books-showcase",
   "interactive-book",
-  "perspective-carousel",
   "animated-button",
-  "candy-button",
-  "radial-glow-button",
   "animated-number",
   "stats-counter",
-  "testimonials-card",
   "faq-accordion",
   "search-modal",
-  "gooey-search",
-  "liquid-ocean",
   "fluid-morph-bg",
   "animated-footer",
   "kinetic-text-loader",
@@ -28,7 +24,7 @@ const components = [
   "highlight-grid"
 ];
 
-console.log(`Syncing ${components.length} Vengeance UI components from the pinned upstream registry...`);
+console.log(`Syncing ${components.length} production Vengeance UI components from the pinned upstream registry...`);
 const result = spawnSync(
   "npm",
   ["exec", "--", "shadcn", "add", "--overwrite", ...components.map((name) => `@vengeanceui/${name}`)],
