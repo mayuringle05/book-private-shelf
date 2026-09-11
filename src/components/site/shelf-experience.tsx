@@ -35,7 +35,7 @@ export function ShelfExperience({ books, compact = false }: { books: BookWithPro
         books={mapped}
         heroTitle={compact ? "The collection" : "Three volumes. One shelf."}
         navTitle="BOOK / Founding collection"
-        showDetailPanel
+        showDetailPanel={false}
         showCarousel
         themeColors={{
           navy: "#080706",
