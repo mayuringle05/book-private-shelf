@@ -16,10 +16,10 @@ export function LibrarySearch({ books }: { books: BookWithProgress[] }) {
     <>
       <AnimatedButton
         onClick={() => setOpen(true)}
-        className="!rounded-full !border-white/10 !bg-white/[.04] !px-5 !py-2.5"
+        className="!rounded-full !border-white/15 !bg-white/[.06] !px-5 !py-2.5 !text-[#F2EBDD]"
       >
         <Search className="mr-2 h-4 w-4" /> Search shelf
-        <span className="ml-3 text-[10px] opacity-40">⌘K</span>
+        <span className="ml-3 text-[10px] text-white/38">⌘K</span>
       </AnimatedButton>
       <SearchModal
         modal
