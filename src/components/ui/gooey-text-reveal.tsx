@@ -44,7 +44,7 @@ export interface GooeyTextRevealProps
   onComplete?: () => void;
 }
 
-const LINE_EDGE_BLUR = 0.08;
+const LINE_EDGE_BLUR = 0;
 
 function wrapLine(line: HTMLElement) {
   const inner = document.createElement("span");
@@ -278,7 +278,7 @@ export const GooeyTextReveal = React.forwardRef<
             <feColorMatrix
               in="SourceGraphic"
               type="matrix"
-              values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 255 -140"
+              values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 255 -72"
             />
           </filter>
         </defs>
