@@ -28,16 +28,26 @@ const components = [
   "highlight-grid"
 ];
 
-const args = ["--yes", "shadcn@latest", "add", "--overwrite", ...components.map((name) => `@vengeanceui/${name}`)];
 console.log(`Syncing ${components.length} Vengeance UI components from the pinned upstream registry...`);
-const result = spawnSync("npx", args, { stdio: "inherit", shell: process.platform === "win32" });
+const result = spawnSync(
+  "npm",
+  ["exec", "--", "shadcn", "add", "--overwrite", ...components.map((name) => `@vengeanceui/${name}`)],
+  { stdio: "inherit", shell: process.platform === "win32" },
+);
+
 if (result.status !== 0) process.exit(result.status ?? 1);
 
 const generateButtonPath = resolve("src/components/ui/generate-button.tsx");
 let generateSource = readFileSync(generateButtonPath, "utf8");
+const originalGenerateSource = generateSource;
+
 generateSource = generateSource
   .replace('{"Generate".split("")', '{"Copy Work Packet".split("")')
   .replace('{"Generating".split("")', '{"Copying Packet".split("")');
-writeFileSync(generateButtonPath, generateSource);
 
-console.log("Vengeance UI synced. BOOK copy re-skin applied; animation logic remains upstream source.");
+if (generateSource === originalGenerateSource) {
+  throw new Error("Pinned Generate Button source changed unexpectedly; BOOK copy patch was not applied.");
+}
+
+writeFileSync(generateButtonPath, generateSource);
+console.log("Vengeance UI synced from the locked registry commit. BOOK copy re-skin applied without changing animation logic.");
