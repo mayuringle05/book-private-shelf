@@ -44,7 +44,7 @@ export interface GooeyTextRevealProps
   onComplete?: () => void;
 }
 
-const LINE_EDGE_BLUR = 0.4;
+const LINE_EDGE_BLUR = 0.08;
 
 function wrapLine(line: HTMLElement) {
   const inner = document.createElement("span");
