@@ -7,6 +7,7 @@ import "@fontsource-variable/newsreader/wght.css";
 import "@fontsource-variable/newsreader/wght-italic.css";
 import "./globals.css";
 import { ThemeProvider } from "@/components/site/theme-provider";
+import { PageExperience } from "@/components/site/page-experience";
 
 export const metadata: Metadata = {
   title: { default: "BOOK — The Private Shelf", template: "%s — BOOK" },
@@ -28,7 +29,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
       <body>
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <PageExperience>{children}</PageExperience>
+        </ThemeProvider>
       </body>
     </html>
   );
