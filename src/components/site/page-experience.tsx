@@ -8,11 +8,8 @@ import { EliteCursor } from "@/components/ui/elite-cursor";
 export function PageExperience({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const reducedMotion = useReducedMotion();
-  const [navigating, setNavigating] = useState(false);
-
-  useEffect(() => {
-    setNavigating(false);
-  }, [pathname]);
+  const [targetPathname, setTargetPathname] = useState<string | null>(null);
+  const navigating = targetPathname !== null && targetPathname !== pathname;
 
   useEffect(() => {
     const onClick = (event: MouseEvent) => {
@@ -22,8 +19,11 @@ export function PageExperience({ children }: { children: React.ReactNode }) {
       const href = anchor.getAttribute("href");
       if (!href || !href.startsWith("/") || href.startsWith("/#")) return;
       if (anchor.target === "_blank" || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-      setNavigating(true);
-      window.setTimeout(() => setNavigating(false), 1400);
+
+      const destination = new URL(anchor.href, window.location.href);
+      if (destination.origin !== window.location.origin) return;
+      setTargetPathname(destination.pathname);
+      window.setTimeout(() => setTargetPathname(null), 1600);
     };
 
     document.addEventListener("click", onClick);
