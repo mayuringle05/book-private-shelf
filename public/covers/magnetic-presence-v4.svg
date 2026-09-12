@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1200" viewBox="0 0 800 1200" role="img" aria-labelledby="t d">
+  <title id="t">Magnetic Presence — BOOK (Duotone Photographic Abstraction)</title><desc id="d">Duotone photographic abstraction: two soft blurred silhouettes in copper and oxblood on near-black, joined by a luminous magnetic field band, built from layered radial gradients and blur filters.</desc>
+  <defs>
+    <filter id="paper" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="3" seed="18" result="n"/><feColorMatrix in="n" type="saturate" values="0" result="mono"/><feComponentTransfer in="mono" result="soft"><feFuncA type="table" tableValues="0 0.055"/></feComponentTransfer><feBlend in="SourceGraphic" in2="soft" mode="soft-light"/></filter>
+    <filter id="soft" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="46"/></filter>
+    <filter id="haze" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="90"/></filter>
+    <radialGradient id="copperBody" cx="50%" cy="38%" r="65%"><stop offset="0%" stop-color="#C98762"/><stop offset="55%" stop-color="#8A4A38"/><stop offset="100%" stop-color="#682F2D" stop-opacity="0"/></radialGradient>
+    <radialGradient id="oxBody" cx="50%" cy="40%" r="65%"><stop offset="0%" stop-color="#7C4334"/><stop offset="55%" stop-color="#682F2D"/><stop offset="100%" stop-color="#090807" stop-opacity="0"/></radialGradient>
+    <radialGradient id="fieldGlow" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#C98762" stop-opacity=".8"/><stop offset="60%" stop-color="#682F2D" stop-opacity=".35"/><stop offset="100%" stop-color="#090807" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="800" height="1200" fill="#090807"/>
+  <g filter="url(#paper)">
+    <rect x="44" y="44" width="712" height="1112" fill="none" stroke="#F3EDE3" stroke-opacity=".32"/>
+    <text x="76" y="102" fill="#F3EDE3" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="700" letter-spacing="8">BOOK</text>
+    <text x="724" y="102" fill="#F3EDE3" font-family="Arial,Helvetica,sans-serif" font-size="18" text-anchor="end" letter-spacing="4">VOL. 01</text>
+    <line x1="76" y1="139" x2="724" y2="139" stroke="#F3EDE3" stroke-opacity=".4"/>
+    <g filter="url(#haze)"><ellipse cx="400" cy="440" rx="330" ry="210" fill="url(#fieldGlow)"/></g>
+    <g filter="url(#soft)">
+      <ellipse cx="290" cy="560" rx="185" ry="270" fill="url(#copperBody)" opacity=".9"/>
+      <circle cx="290" cy="368" r="92" fill="url(#copperBody)" opacity=".95"/>
+      <rect x="165" y="440" width="250" height="230" rx="110" fill="url(#copperBody)" opacity=".9"/>
+      <ellipse cx="545" cy="600" rx="200" ry="280" fill="url(#oxBody)" opacity=".9"/>
+      <circle cx="545" cy="400" r="95" fill="url(#oxBody)" opacity=".95"/>
+      <rect x="420" y="475" width="255" height="230" rx="105" fill="url(#oxBody)" opacity=".9"/>
+      <ellipse cx="410" cy="690" rx="250" ry="52" fill="url(#fieldGlow)" opacity=".55" transform="rotate(-6 410 690)"/>
+    </g>
+    <g fill="none" stroke="#F3EDE3" stroke-opacity=".4">
+      <path d="M210 300 Q410 180 620 320" stroke-width="1"/>
+      <path d="M200 350 Q410 250 630 380" stroke-width="1" stroke-opacity=".28"/>
+      <path d="M215 560 Q410 500 620 570" stroke-width="1" stroke-opacity=".22"/>
+      <path d="M225 640 Q410 600 615 655" stroke-width="1" stroke-opacity=".16"/>
+    </g>
+    <circle cx="290" cy="330" r="4" fill="#F3EDE3"/>
+    <circle cx="545" cy="362" r="4" fill="#F3EDE3"/>
+    <text x="76" y="852" fill="#AAA097" font-family="Georgia,'Times New Roman',serif" font-size="25" font-style="italic">Confidence people can feel</text>
+    <text x="76" y="884" fill="#AAA097" font-family="Georgia,'Times New Roman',serif" font-size="25" font-style="italic">before you say a word.</text>
+    <text x="72" y="986" fill="#F3EDE3" font-family="Georgia,'Times New Roman',serif" font-size="74" letter-spacing="-2">MAGNETIC</text>
+    <text x="72" y="1052" fill="#C98762" font-family="Georgia,'Times New Roman',serif" font-size="74" letter-spacing="-2">PRESENCE</text>
+    <line x1="76" y1="1078" x2="724" y2="1078" stroke="#F3EDE3" stroke-opacity=".42"/>
+    <text x="76" y="1114" fill="#F3EDE3" font-family="Arial,Helvetica,sans-serif" font-size="17" letter-spacing="4">THE PRIVATE SHELF</text>
+    <text x="724" y="1114" fill="#F3EDE3" font-family="Arial,Helvetica,sans-serif" font-size="17" text-anchor="end" letter-spacing="3">ORIGINAL EDITION</text>
+  </g>
+</svg>

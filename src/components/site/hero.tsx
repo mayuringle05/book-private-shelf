@@ -1,10 +1,10 @@
 "use client";
 
 import { ArrowDown, ArrowRight } from "lucide-react";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { useRouter } from "next/navigation";
+import { useRef } from "react";
 import type { CSSProperties, PointerEvent } from "react";
-import { AuroraHero } from "@/components/ui/aurora-hero";
 import AnimatedButton from "@/components/ui/animated-button";
 
 const particles = Array.from({ length: 26 }, (_, index) => ({
@@ -39,6 +39,11 @@ function RevealWords({ text, delay = 0 }: { text: string; delay?: number }) {
 export function Hero({ bookCount, publishedCount }: { bookCount: number; publishedCount: number }) {
   const router = useRouter();
   const reducedMotion = useReducedMotion();
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start start", "end start"] });
+  // Depth parallax: blooms drift fastest — sells the layered atmosphere
+  const bloomY = useTransform(scrollYProgress, [0, 1], [0, reducedMotion ? 0 : 150]);
+  const heroFade = useTransform(scrollYProgress, [0, 0.85], [1, 0.35]);
 
   const updateSpotlight = (event: PointerEvent<HTMLElement>) => {
     if (reducedMotion) return;
@@ -49,16 +54,16 @@ export function Hero({ bookCount, publishedCount }: { bookCount: number; publish
 
   return (
     <section
+      ref={sectionRef}
       className="book-hero relative min-h-[100svh] overflow-hidden border-b book-hairline"
       onPointerMove={updateSpotlight}
       style={{ "--hero-x": "72%", "--hero-y": "24%" } as CSSProperties}
     >
-      <div className="absolute inset-0 scale-[1.04] opacity-65 saturate-[.72]">
-        <AuroraHero title=" " showSwitch={false} className="!h-full !min-h-full" />
-      </div>
-      <div aria-hidden="true" className="book-hero-bloom book-hero-bloom-one" />
-      <div aria-hidden="true" className="book-hero-bloom book-hero-bloom-two" />
-      <div aria-hidden="true" className="book-hero-bloom book-hero-bloom-three" />
+      <motion.div style={{ y: bloomY, opacity: heroFade }} className="absolute inset-0" aria-hidden="true">
+        <div className="book-hero-bloom book-hero-bloom-one" />
+        <div className="book-hero-bloom book-hero-bloom-two" />
+        <div className="book-hero-bloom book-hero-bloom-three" />
+      </motion.div>
       <div aria-hidden="true" className="book-hero-spotlight" />
       <div aria-hidden="true" className="book-light-leak" />
       <div aria-hidden="true" className="book-grain absolute inset-0 z-[4] opacity-[.16]" />

@@ -2,6 +2,10 @@
 
 import { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
+import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js';
+import { OutputPass } from 'three/examples/jsm/postprocessing/OutputPass.js';
 import { cn } from '@/lib/utils';
 
 export interface BookCfg {
@@ -220,7 +224,7 @@ export function BooksShowcase({
     // every place that would use innerWidth/innerHeight reads from `dims`.
     const dims = { w: 0, h: 0 };
 
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, lowPowerDevice ? 1 : 1.25));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, lowPowerDevice ? 1 : 2));
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 0.92;
@@ -242,17 +246,19 @@ export function BooksShowcase({
       x.fill();
     }
     (function buildEnv() {
+      // Warm on-brand environment: candlelit-library key light, copper rim,
+      // soft rose bounce — matches the book-* palette instead of the cold blue default.
       const c = mkCanvas(512, 256),
         x = c.getContext('2d')!;
       const g = x.createLinearGradient(0, 0, 0, 256);
-      g.addColorStop(0, '#5a6ba6');
-      g.addColorStop(0.55, '#262e52');
-      g.addColorStop(1, '#0a0d1d');
+      g.addColorStop(0, '#a86a3d');
+      g.addColorStop(0.5, '#3d2417');
+      g.addColorStop(1, '#0b0705');
       x.fillStyle = g;
       x.fillRect(0, 0, 512, 256);
-      envBlob(x, 140, 66, 95, '255,255,255', 0.95);
-      envBlob(x, 405, 84, 55, '255,214,168', 0.55);
-      envBlob(x, 256, 150, 120, '255,155,185', 0.28);
+      envBlob(x, 150, 62, 100, '255,236,210', 0.95);
+      envBlob(x, 400, 90, 60, '201,135,98', 0.6);
+      envBlob(x, 262, 158, 110, '255,196,160', 0.24);
       const tx = new THREE.CanvasTexture(c);
       tx.mapping = THREE.EquirectangularReflectionMapping;
       const pmrem = new THREE.PMREMGenerator(renderer);
@@ -261,9 +267,9 @@ export function BooksShowcase({
       pmrem.dispose();
     })();
 
-    const hemi = new THREE.HemisphereLight(0x8fa0d8, 0x0d1024, 0.32);
+    const hemi = new THREE.HemisphereLight(0xd8b89a, 0x14100c, 0.35);
     scene.add(hemi);
-    const key = new THREE.DirectionalLight(0xffffff, 0.82);
+    const key = new THREE.DirectionalLight(0xfff3e2, 0.85);
     key.position.set(3.5, 5, 6);
     key.castShadow = true;
     key.shadow.mapSize.set(2048, 2048);
@@ -276,12 +282,33 @@ export function BooksShowcase({
     key.shadow.bias = -0.0004;
     key.shadow.normalBias = 0.02;
     scene.add(key);
-    const fillLight = new THREE.DirectionalLight(0xa9b6ff, 0.2);
+    const fillLight = new THREE.DirectionalLight(0xd9c2a8, 0.22);
     fillLight.position.set(-4, 1, 4);
     scene.add(fillLight);
-    const rim = new THREE.DirectionalLight(0xff9db8, 0.3);
+    const rim = new THREE.DirectionalLight(0xc98762, 0.42);
     rim.position.set(-2, 3, -5);
     scene.add(rim);
+
+    // Shadow-catching shelf plane grounds the books with real cast shadows
+    const shelfPlane = new THREE.Mesh(
+      new THREE.PlaneGeometry(30, 14),
+      new THREE.ShadowMaterial({ color: 0x000000, opacity: 0.55 }),
+    );
+    shelfPlane.rotation.x = -Math.PI / 2;
+    shelfPlane.position.y = -2.05;
+    shelfPlane.receiveShadow = true;
+    scene.add(shelfPlane);
+
+    // Bloom pass: only the warm highlights laminate-glow; skipped on low-power devices
+    let composer: EffectComposer | null = null;
+    let bloomPass: UnrealBloomPass | null = null;
+    if (!lowPowerDevice) {
+      composer = new EffectComposer(renderer);
+      composer.addPass(new RenderPass(scene, camera));
+      bloomPass = new UnrealBloomPass(new THREE.Vector2(1, 1), 0.32, 0.55, 0.72);
+      composer.addPass(bloomPass);
+      composer.addPass(new OutputPass());
+    }
 
     const bookRoot = new THREE.Group();
     scene.add(bookRoot);
@@ -607,6 +634,8 @@ export function BooksShowcase({
       slotScale: number;
       hitEdge: number | null;
       scr: { x: number; y: number };
+      frontMat: THREE.MeshStandardMaterial;
+      glow: number;
       orbY: number;
       orbYv: number;
       orbPhase: string;
@@ -763,6 +792,8 @@ export function BooksShowcase({
         slotScale: 1,
         hitEdge: null,
         scr: { x: 0, y: 0 },
+        frontMat: mFront,
+        glow: 0,
         orbY: 0,
         orbYv: 0,
         orbPhase: 'idle',
@@ -1422,6 +1453,12 @@ export function BooksShowcase({
       s.coverB.t = coverBBase + fanB;
       s.sc.t = b.slotScale * (isHov && state.mode === 'hero' ? 1.09 : 1);
 
+      // Hover glow: copper emissive bloom builds in as the book focuses
+      const glowT = (isHov && state.mode === 'hero') || inDetail ? 1 : 0;
+      b.glow += (glowT - b.glow) * Math.min(1, dt * 7);
+      b.frontMat.emissive.setRGB(0.79, 0.53, 0.38);
+      b.frontMat.emissiveIntensity = b.glow * 0.22;
+
       s.px.update(dt);
       if (b.exit) stepY(b, dt);
       else s.py.update(dt);
@@ -1525,7 +1562,8 @@ export function BooksShowcase({
         hidePill();
       }
 
-      renderer.render(scene, camera);
+      if (composer) composer.render();
+      else renderer.render(scene, camera);
     }
 
     function resumeAnimation() {
@@ -1537,10 +1575,11 @@ export function BooksShowcase({
       const r = root!.getBoundingClientRect();
       dims.w = Math.max(1, Math.round(r.width));
       dims.h = Math.max(1, Math.round(r.height));
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, lowPowerDevice ? 1 : 1.25));
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, lowPowerDevice ? 1 : 2));
       renderer.setSize(dims.w, dims.h);
       camera.aspect = dims.w / dims.h;
       camera.updateProjectionMatrix();
+      if (composer) composer.setSize(dims.w, dims.h);
       computeSlots();
       applyMode();
       camTo(state.mode === 'detail' || state.mode === 'opening' ? 'detail' : 'hero');
@@ -1647,6 +1686,7 @@ export function BooksShowcase({
       });
       scene.environment?.dispose();
       scene.environment = null;
+      composer?.dispose();
       renderer.dispose();
     };
   }, [books, showDetailPanel]);

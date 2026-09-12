@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1200" viewBox="0 0 800 1200" role="img" aria-labelledby="t d">
+  <title id="t">Magnetic Presence — BOOK (Typographic Minimal)</title><desc id="d">Minimal typographic cover: oversized serif title in cream and copper outline on deep near-black, one hairline rule, generous negative space.</desc>
+  <defs><filter id="paper" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="3" seed="18" result="n"/><feColorMatrix in="n" type="saturate" values="0" result="mono"/><feComponentTransfer in="mono" result="soft"><feFuncA type="table" tableValues="0 0.055"/></feComponentTransfer><feBlend in="SourceGraphic" in2="soft" mode="soft-light"/></filter></defs>
+  <rect width="800" height="1200" fill="#090807"/>
+  <g filter="url(#paper)">
+    <rect x="44" y="44" width="712" height="1112" fill="none" stroke="#F3EDE3" stroke-opacity=".3"/>
+    <text x="76" y="102" fill="#F3EDE3" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="700" letter-spacing="8">BOOK</text>
+    <text x="724" y="102" fill="#F3EDE3" font-family="Arial,Helvetica,sans-serif" font-size="18" text-anchor="end" letter-spacing="4">VOL. 01</text>
+    <line x1="76" y1="139" x2="724" y2="139" stroke="#F3EDE3" stroke-opacity=".35"/>
+    <circle cx="400" cy="452" r="5" fill="#C98762"/>
+    <text x="76" y="640" fill="#AAA097" font-family="Georgia,'Times New Roman',serif" font-size="25" font-style="italic">Confidence people can feel</text>
+    <text x="76" y="672" fill="#AAA097" font-family="Georgia,'Times New Roman',serif" font-size="25" font-style="italic">before you say a word.</text>
+    <line x1="76" y1="706" x2="724" y2="706" stroke="#AAA097" stroke-opacity=".55" stroke-width="1"/>
+    <text x="72" y="822" fill="#F3EDE3" font-family="Georgia,'Times New Roman',serif" font-size="106" letter-spacing="-4">MAGNETIC</text>
+    <text x="72" y="936" fill="none" stroke="#C98762" stroke-width="1.3" font-family="Georgia,'Times New Roman',serif" font-size="106" letter-spacing="-4">PRESENCE</text>
+    <line x1="76" y1="1072" x2="724" y2="1072" stroke="#F3EDE3" stroke-opacity=".42"/>
+    <text x="76" y="1114" fill="#F3EDE3" font-family="Arial,Helvetica,sans-serif" font-size="17" letter-spacing="4">THE PRIVATE SHELF</text>
+    <text x="724" y="1114" fill="#F3EDE3" font-family="Arial,Helvetica,sans-serif" font-size="17" text-anchor="end" letter-spacing="3">ORIGINAL EDITION</text>
+  </g>
+</svg>

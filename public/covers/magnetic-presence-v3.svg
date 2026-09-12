@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1200" viewBox="0 0 800 1200" role="img" aria-labelledby="t d">
+  <title id="t">Magnetic Presence — BOOK (Art Deco)</title><desc id="d">Art Deco cover: gold-on-dark stepped sunburst fan, symmetric concentric arcs and chevrons inside a double framed border.</desc>
+  <defs><filter id="paper" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="3" seed="18" result="n"/><feColorMatrix in="n" type="saturate" values="0" result="mono"/><feComponentTransfer in="mono" result="soft"><feFuncA type="table" tableValues="0 0.055"/></feComponentTransfer><feBlend in="SourceGraphic" in2="soft" mode="soft-light"/></filter></defs>
+  <rect width="800" height="1200" fill="#090807"/>
+  <g filter="url(#paper)">
+    <rect x="44" y="44" width="712" height="1112" fill="none" stroke="#C98762" stroke-opacity=".75" stroke-width="2"/>
+    <rect x="60" y="60" width="680" height="1080" fill="none" stroke="#C98762" stroke-opacity=".45"/>
+    <path d="M60 108 L92 108 L92 76 L60 76 Z M740 76 L708 76 L708 108 L740 108 Z" fill="#C98762" fill-opacity=".4"/>
+    <text x="400" y="112" text-anchor="middle" fill="#C98762" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="700" letter-spacing="10">BOOK</text>
+    <text x="400" y="144" text-anchor="middle" fill="#F3EDE3" font-family="Arial,Helvetica,sans-serif" font-size="16" letter-spacing="6">VOL. 01</text>
+    <line x1="120" y1="168" x2="680" y2="168" stroke="#C98762" stroke-opacity=".5"/>
+    <g fill="none" stroke="#C98762">
+      <path d="M280 640 A120 120 0 0 1 520 640" stroke-opacity=".9" stroke-width="2"/>
+      <path d="M200 640 A200 200 0 0 1 600 640" stroke-opacity=".6"/>
+      <path d="M120 640 A280 280 0 0 1 680 640" stroke-opacity=".4"/>
+      <path d="M40 640 A360 360 0 0 1 760 640" stroke-opacity=".25"/>
+      <path d="M71 450 L400 640" stroke-opacity=".7"/><path d="M131 373 L400 640" stroke-opacity=".6"/><path d="M210 311 L400 640" stroke-opacity=".5"/><path d="M302 273 L400 640" stroke-opacity=".4"/>
+      <path d="M729 450 L400 640" stroke-opacity=".7"/><path d="M669 373 L400 640" stroke-opacity=".6"/><path d="M590 311 L400 640" stroke-opacity=".5"/><path d="M498 273 L400 640" stroke-opacity=".4"/>
+      <path d="M400 240 L400 640" stroke-opacity=".8"/>
+      <path d="M340 640 A60 60 0 0 0 460 640" stroke-opacity=".55"/>
+      <path d="M300 640 A100 100 0 0 0 500 640" stroke-opacity=".35"/>
+    </g>
+    <path d="M400 556 L446 640 L400 724 L354 640 Z" fill="#C98762" fill-opacity=".85"/>
+    <path d="M400 578 L424 640 L400 702 L376 640 Z" fill="#090807"/>
+    <circle cx="400" cy="640" r="8" fill="#F3EDE3"/>
+    <g stroke="#C98762" stroke-opacity=".5"><path d="M300 788 L400 776 L500 788"/><path d="M320 812 L400 801 L480 812"/><path d="M340 836 L400 826 L460 836"/></g>
+    <text x="400" y="922" text-anchor="middle" fill="#C98762" font-family="Georgia,'Times New Roman',serif" font-size="72" letter-spacing="6">MAGNETIC</text>
+    <text x="400" y="1000" text-anchor="middle" fill="#F3EDE3" font-family="Georgia,'Times New Roman',serif" font-size="72" letter-spacing="6">PRESENCE</text>
+    <text x="400" y="1040" text-anchor="middle" fill="#AAA097" font-family="Georgia,'Times New Roman',serif" font-size="21" font-style="italic">Confidence people can feel before you say a word.</text>
+    <line x1="120" y1="1072" x2="680" y2="1072" stroke="#C98762" stroke-opacity=".5"/>
+    <text x="120" y="1106" fill="#F3EDE3" font-family="Arial,Helvetica,sans-serif" font-size="16" letter-spacing="4">THE PRIVATE SHELF</text>
+    <text x="680" y="1106" text-anchor="end" fill="#F3EDE3" font-family="Arial,Helvetica,sans-serif" font-size="16" letter-spacing="3">ORIGINAL EDITION</text>
+  </g>
+</svg>

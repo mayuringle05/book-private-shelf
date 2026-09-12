@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1200" viewBox="0 0 800 1200" role="img" aria-labelledby="t d">
+  <title id="t">Magnetic Presence — BOOK (Foil Stamp Metallic)</title><desc id="d">Foil-stamped cover: copper and gold metallic foil medallion with banded specular highlight gradients, embossed ring and title on deep near-black.</desc>
+  <defs>
+    <filter id="paper" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="3" seed="18" result="n"/><feColorMatrix in="n" type="saturate" values="0" result="mono"/><feComponentTransfer in="mono" result="soft"><feFuncA type="table" tableValues="0 0.055"/></feComponentTransfer><feBlend in="SourceGraphic" in2="soft" mode="soft-light"/></filter>
+    <linearGradient id="foilCopper" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6E4A33"/><stop offset=".16" stop-color="#C98762"/><stop offset=".3" stop-color="#F6E7D4"/><stop offset=".42" stop-color="#C98762"/><stop offset=".56" stop-color="#8A5A3F"/><stop offset=".7" stop-color="#E8B98F"/><stop offset=".85" stop-color="#9C6B4A"/><stop offset="1" stop-color="#C98762"/></linearGradient>
+    <linearGradient id="foilGold" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#8A6B3F"/><stop offset=".2" stop-color="#D9A55F"/><stop offset=".36" stop-color="#FFF3DC"/><stop offset=".5" stop-color="#C98762"/><stop offset=".66" stop-color="#F0CE9A"/><stop offset=".84" stop-color="#A57B45"/><stop offset="1" stop-color="#D9A55F"/></linearGradient>
+    <linearGradient id="foilSheen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF8EF" stop-opacity=".75"/><stop offset=".5" stop-color="#FFF8EF" stop-opacity=".1"/><stop offset="1" stop-color="#FFF8EF" stop-opacity="0"/></linearGradient>
+  </defs>
+  <rect width="800" height="1200" fill="#090807"/>
+  <g filter="url(#paper)">
+    <rect x="44" y="44" width="712" height="1112" fill="none" stroke="#F3EDE3" stroke-opacity=".32"/>
+    <text x="76" y="102" fill="#F3EDE3" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="700" letter-spacing="8">BOOK</text>
+    <text x="724" y="102" fill="#F3EDE3" font-family="Arial,Helvetica,sans-serif" font-size="18" text-anchor="end" letter-spacing="4">VOL. 01</text>
+    <line x1="76" y1="139" x2="724" y2="139" stroke="#F3EDE3" stroke-opacity=".4"/>
+    <circle cx="403" cy="443" r="196" fill="none" stroke="#1C0F0B" stroke-width="26" stroke-opacity=".8"/>
+    <circle cx="400" cy="440" r="196" fill="none" stroke="url(#foilCopper)" stroke-width="24"/>
+    <circle cx="400" cy="440" r="196" fill="none" stroke="#F3EDE3" stroke-width="1.2" stroke-opacity=".5"/>
+    <circle cx="400" cy="440" r="121" fill="url(#foilGold)"/>
+    <path d="M290 440 A110 110 0 0 1 510 440 A110 55 0 0 0 290 440 Z" fill="url(#foilSheen)" opacity=".5"/>
+    <circle cx="400" cy="440" r="121" fill="none" stroke="#3A241C" stroke-width="2" stroke-opacity=".7"/>
+    <circle cx="400" cy="440" r="117" fill="none" stroke="#F6E7D4" stroke-width="1" stroke-opacity=".6"/>
+    <text x="400" y="478" text-anchor="middle" fill="#090807" font-family="Georgia,'Times New Roman',serif" font-size="118" letter-spacing="-3">M</text>
+    <g stroke="url(#foilCopper)" stroke-width="10" fill="none">
+      <path d="M76 596 L724 596" opacity=".9"/>
+    </g>
+    <path d="M76 600 L724 600" stroke="#1C0F0B" stroke-width="8" fill="none" opacity=".8"/>
+    <path d="M76 590 L724 590" stroke="#F6E7D4" stroke-width="1" fill="none" opacity=".45"/>
+    <text x="76" y="686" fill="#AAA097" font-family="Georgia,'Times New Roman',serif" font-size="25" font-style="italic">Confidence people can feel</text>
+    <text x="76" y="718" fill="#AAA097" font-family="Georgia,'Times New Roman',serif" font-size="25" font-style="italic">before you say a word.</text>
+    <text x="70" y="826" fill="#1C0F0B" font-family="Georgia,'Times New Roman',serif" font-size="84" letter-spacing="-3">MAGNETIC</text>
+    <text x="72" y="822" fill="url(#foilCopper)" font-family="Georgia,'Times New Roman',serif" font-size="84" letter-spacing="-3">MAGNETIC</text>
+    <text x="70" y="914" fill="#1C0F0B" font-family="Georgia,'Times New Roman',serif" font-size="84" letter-spacing="-3">PRESENCE</text>
+    <text x="72" y="910" fill="url(#foilGold)" font-family="Georgia,'Times New Roman',serif" font-size="84" letter-spacing="-3">PRESENCE</text>
+    <line x1="76" y1="1072" x2="724" y2="1072" stroke="#F3EDE3" stroke-opacity=".42"/>
+    <text x="76" y="1114" fill="#F3EDE3" font-family="Arial,Helvetica,sans-serif" font-size="17" letter-spacing="4">THE PRIVATE SHELF</text>
+    <text x="724" y="1114" fill="#F3EDE3" font-family="Arial,Helvetica,sans-serif" font-size="17" text-anchor="end" letter-spacing="3">ORIGINAL EDITION</text>
+  </g>
+</svg>

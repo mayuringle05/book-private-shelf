@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowUpRight } from "lucide-react";
@@ -8,6 +9,35 @@ import { SiteFooter } from "@/components/site/site-footer";
 import { safeBook } from "@/lib/public-data";
 import { unitSummary, unitTitle } from "@/lib/content-view";
 
+function siteUrl(): string {
+  return (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000").replace(/\/$/, "");
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const data = await safeBook(slug);
+  if (!data) return { title: "Volume not found" };
+  const { book } = data;
+  const title = `${book.title}${book.subtitle ? `: ${book.subtitle}` : ""}`;
+  return {
+    title,
+    description: book.description,
+    alternates: { canonical: `/books/${book.slug}` },
+    openGraph: {
+      title: `${title} — BOOK`,
+      description: book.description,
+      type: "book",
+      url: `${siteUrl()}/books/${book.slug}`,
+      images: [{ url: book.cover_image ?? `/covers/${book.slug}.svg`, width: 1024, height: 1536, alt: title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${title} — BOOK`,
+      description: book.description,
+    },
+  };
+}
+
 export default async function BookPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const data = await safeBook(slug);
@@ -15,8 +45,21 @@ export default async function BookPage({ params }: { params: Promise<{ slug: str
   const { book, units } = data;
   const chapters = units.filter((unit) => unit.unit_type === "chapter");
 
+  const bookJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Book",
+    name: book.title,
+    author: { "@type": "Person", name: book.author_name },
+    description: book.description,
+    url: `${siteUrl()}/books/${book.slug}`,
+    bookFormat: "https://schema.org/EBook",
+    inLanguage: "en",
+    ...(book.cover_image ? { image: `${siteUrl()}${book.cover_image}` } : {}),
+  };
+
   return (
     <main className="min-h-screen bg-[var(--book-bg)]">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(bookJsonLd) }} />
       <SiteNav active={1} />
       <section className="relative overflow-hidden border-b book-hairline"><Atmosphere className="opacity-[.14]" /><div className="book-shell relative z-10 pb-10 pt-24 md:pt-28"><BookEntry book={book} units={units} /></div></section>
       <section className="border-b book-hairline">

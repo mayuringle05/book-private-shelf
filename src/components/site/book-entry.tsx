@@ -1,15 +1,20 @@
 "use client";
 
+import { useSyncExternalStore } from "react";
 import { ArrowRight, LockKeyhole } from "lucide-react";
 import { useRouter } from "next/navigation";
 import InteractiveBook, { type BookPage } from "@/components/ui/interactive-book";
 import AnimatedButton from "@/components/ui/animated-button";
 import type { BookWithProgress, UnitRecord } from "@/lib/types";
-import { coverForSlug } from "@/lib/covers";
+import { coverForSlug, sessionCoverVariantCached } from "@/lib/covers";
 import { unitSummary, unitTitle } from "@/lib/content-view";
+
+const subscribeNoop = () => () => {};
 
 export function BookEntry({ book, units }: { book: BookWithProgress; units: UnitRecord[] }) {
   const router = useRouter();
+  // Collector's-edition cover: a stable random variant per browser session
+  const coverVariant = useSyncExternalStore(subscribeNoop, () => sessionCoverVariantCached(book.slug), () => 1);
   const chapterUnits = units.filter((unit) => unit.unit_type === "chapter");
   const pages: BookPage[] = (chapterUnits.length ? chapterUnits.slice(0, 4) : [null, null]).map((unit, index) => ({
     pageNumber: index + 1,
@@ -59,7 +64,7 @@ export function BookEntry({ book, units }: { book: BookWithProgress; units: Unit
 
       <div className="order-1 min-h-[620px] overflow-hidden lg:order-2 lg:col-span-7 lg:min-h-[760px]">
         <InteractiveBook
-          coverImage={book.cover_image || coverForSlug(book.slug)}
+          coverImage={book.cover_image || coverForSlug(book.slug, coverVariant)}
           bookTitle={book.title}
           bookAuthor={book.author_name}
           pages={pages}

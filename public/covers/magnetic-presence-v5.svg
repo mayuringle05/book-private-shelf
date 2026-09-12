@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1200" viewBox="0 0 800 1200" role="img" aria-labelledby="t d">
+  <title id="t">Magnetic Presence — BOOK (Engraved Line-Work)</title><desc id="d">Engraved plate cover: a face in profile and magnetic field rings drawn as fine parallel contour hatch lines in cream and copper on deep near-black.</desc>
+  <defs>
+    <filter id="paper" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="3" seed="18" result="n"/><feColorMatrix in="n" type="saturate" values="0" result="mono"/><feComponentTransfer in="mono" result="soft"><feFuncA type="table" tableValues="0 0.055"/></feComponentTransfer><feBlend in="SourceGraphic" in2="soft" mode="soft-light"/></filter>
+    <clipPath id="profile"><path d="M462 378 C402 366 344 386 330 448 C326 468 318 478 306 486 C294 498 288 510 300 516 C310 521 306 528 297 532 C305 540 300 554 291 560 C301 566 299 576 292 582 C303 588 299 602 288 608 C295 620 312 628 324 630 C342 662 352 694 350 742 L468 742 C486 664 492 600 498 545 C520 500 516 410 462 378 Z"/></clipPath>
+  </defs>
+  <rect width="800" height="1200" fill="#090807"/>
+  <g filter="url(#paper)">
+    <rect x="44" y="44" width="712" height="1112" fill="none" stroke="#F3EDE3" stroke-opacity=".32"/>
+    <text x="76" y="102" fill="#F3EDE3" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="700" letter-spacing="8">BOOK</text>
+    <text x="724" y="102" fill="#F3EDE3" font-family="Arial,Helvetica,sans-serif" font-size="18" text-anchor="end" letter-spacing="4">VOL. 01</text>
+    <line x1="76" y1="139" x2="724" y2="139" stroke="#F3EDE3" stroke-opacity=".4"/>
+    <g fill="none" stroke="#C98762">
+      <ellipse cx="400" cy="560" rx="288" ry="196" stroke-width="1" stroke-opacity=".3"/>
+      <ellipse cx="400" cy="560" rx="252" ry="164" stroke-width="1" stroke-opacity=".24"/>
+      <ellipse cx="400" cy="560" rx="216" ry="132" stroke-width="1" stroke-opacity=".2"/>
+      <ellipse cx="400" cy="560" rx="180" ry="100" stroke-width="1" stroke-opacity=".16"/>
+      <path d="M132 560H668" stroke-width="1" stroke-opacity=".18"/>
+    </g>
+    <circle cx="112" cy="560" r="4" fill="#C98762"/><circle cx="688" cy="560" r="4" fill="#C98762"/>
+    <g clip-path="url(#profile)" fill="none" stroke="#F3EDE3" stroke-width="1">
+      <path d="M250 384H560" stroke-opacity=".8"/><path d="M250 393H560" stroke-opacity=".7"/><path d="M250 402H560" stroke-opacity=".8"/><path d="M250 411H560" stroke-opacity=".65"/><path d="M250 420H560" stroke-opacity=".8"/><path d="M250 429H560" stroke-opacity=".55"/><path d="M250 438H560" stroke-opacity=".8"/><path d="M250 447H560" stroke-opacity=".7"/><path d="M250 456H560" stroke-opacity=".5"/><path d="M250 465H560" stroke-opacity=".8"/><path d="M250 474H560" stroke-opacity=".65"/><path d="M250 483H560" stroke-opacity=".8"/><path d="M250 492H560" stroke-opacity=".5"/><path d="M250 501H560" stroke-opacity=".8"/><path d="M250 510H560" stroke-opacity=".6"/><path d="M250 519H560" stroke-opacity=".8"/><path d="M250 528H560" stroke-opacity=".6"/><path d="M250 537H560" stroke-opacity=".8"/><path d="M250 546H560" stroke-opacity=".75"/><path d="M250 555H560" stroke-opacity=".5"/><path d="M250 564H560" stroke-opacity=".8"/><path d="M250 573H560" stroke-opacity=".7"/><path d="M250 582H560" stroke-opacity=".5"/><path d="M250 591H560" stroke-opacity=".8"/><path d="M250 600H560" stroke-opacity=".7"/><path d="M250 609H560" stroke-opacity=".5"/><path d="M250 618H560" stroke-opacity=".8"/><path d="M250 627H560" stroke-opacity=".7"/><path d="M250 636H560" stroke-opacity=".5"/><path d="M250 645H560" stroke-opacity=".8"/><path d="M250 654H560" stroke-opacity=".55"/><path d="M250 663H560" stroke-opacity=".8"/><path d="M250 672H560" stroke-opacity=".6"/><path d="M250 681H560" stroke-opacity=".8"/><path d="M250 690H560" stroke-opacity=".8"/><path d="M250 699H560" stroke-opacity=".65"/><path d="M250 708H560" stroke-opacity=".8"/><path d="M250 717H560" stroke-opacity=".7"/><path d="M250 726H560" stroke-opacity=".8"/><path d="M250 735H560" stroke-opacity=".8"/>
+    </g>
+    <g fill="none" stroke="#C98762" stroke-width="1">
+      <path d="M330 470 Q360 466 384 478" stroke-opacity=".5"/><path d="M334 500 Q356 494 376 506" stroke-opacity=".4"/><path d="M340 560 Q356 556 370 564" stroke-opacity=".35"/><path d="M344 592 Q358 588 370 598" stroke-opacity=".3"/><path d="M368 640 Q390 646 402 664" stroke-opacity=".3"/>
+      <path d="M470 400 Q486 470 480 540 Q474 640 458 730" stroke-opacity=".45"/><path d="M488 420 Q498 480 490 545 Q482 650 470 728" stroke-opacity=".3"/>
+    </g>
+    <path d="M462 378 C402 366 344 386 330 448 C326 468 318 478 306 486 C294 498 288 510 300 516 C310 521 306 528 297 532 C305 540 300 554 291 560 C301 566 299 576 292 582 C303 588 299 602 288 608 C295 620 312 628 324 630 C342 662 352 694 350 742 L468 742 C486 664 492 600 498 545 C520 500 516 410 462 378 Z" fill="none" stroke="#F3EDE3" stroke-width="1.5" stroke-opacity=".9"/>
+    <text x="76" y="852" fill="#AAA097" font-family="Georgia,'Times New Roman',serif" font-size="25" font-style="italic">Confidence people can feel</text>
+    <text x="76" y="884" fill="#AAA097" font-family="Georgia,'Times New Roman',serif" font-size="25" font-style="italic">before you say a word.</text>
+    <text x="72" y="986" fill="#F3EDE3" font-family="Georgia,'Times New Roman',serif" font-size="74" letter-spacing="-2">MAGNETIC</text>
+    <text x="72" y="1052" fill="#C98762" font-family="Georgia,'Times New Roman',serif" font-size="74" letter-spacing="-2">PRESENCE</text>
+    <line x1="76" y1="1078" x2="724" y2="1078" stroke="#F3EDE3" stroke-opacity=".42"/>
+    <text x="76" y="1114" fill="#F3EDE3" font-family="Arial,Helvetica,sans-serif" font-size="17" letter-spacing="4">THE PRIVATE SHELF</text>
+    <text x="724" y="1114" fill="#F3EDE3" font-family="Arial,Helvetica,sans-serif" font-size="17" text-anchor="end" letter-spacing="3">ORIGINAL EDITION</text>
+  </g>
+</svg>

@@ -7,6 +7,8 @@ import { Atmosphere } from "@/components/site/atmosphere";
 import { CinematicSection } from "@/components/site/cinematic-section";
 import StatsCounter from "@/components/ui/stats-counter";
 import { FaqAccordion } from "@/components/ui/faq-accordion";
+import { WordSplitReveal } from "@/components/ui/word-split-reveal";
+import { EmberField } from "@/components/ui/ember-field";
 import { safeCatalog } from "@/lib/catalog";
 import type { BookWithProgress } from "@/lib/types";
 
@@ -85,7 +87,8 @@ export default async function HomePage() {
   const firstBook = books[0];
 
   return (
-    <main className="overflow-hidden bg-[var(--book-bg)]">
+    <main className="relative overflow-hidden">
+      <EmberField />
       <SiteNav active={0} />
       <Hero bookCount={books.length} publishedCount={publishedCount} />
 
@@ -97,7 +100,7 @@ export default async function HomePage() {
               <p className="book-index mt-4 text-[10px] uppercase text-white/28">001—{rangeEnd}</p>
             </div>
             <div className="lg:col-span-6">
-              <h2 className="book-display book-display-xl">Books you enter,<br />not content you scroll past.</h2>
+              <h2 className="book-display book-display-xl"><WordSplitReveal text="Books you enter," /><br /><WordSplitReveal text="not content you scroll past." delay={0.28} /></h2>
             </div>
             <div className="lg:col-span-4 lg:pl-10">
               <p className="book-copy max-w-lg">Pick up a volume in 3D. Inspect it as an object. Once you start reading, the interface gets out of the way and leaves you with the words.</p>
@@ -123,7 +126,7 @@ export default async function HomePage() {
         <div className="book-shell relative z-10">
           <div className="grid gap-10 lg:grid-cols-12">
             <div className="lg:col-span-3"><p className="book-kicker book-kicker-expand">The philosophy</p></div>
-            <div className="lg:col-span-9"><p className="book-display book-display-xl max-w-5xl text-[var(--book-ink)]">No tricks. No performance persona. No endless feed.</p></div>
+            <div className="lg:col-span-9"><p className="book-display book-display-xl max-w-5xl text-[var(--book-ink)]"><WordSplitReveal text="No tricks. No performance persona. No endless feed." /></p></div>
           </div>
           <div className="mt-20 border-t book-rule">
             {principles.map((item) => (
