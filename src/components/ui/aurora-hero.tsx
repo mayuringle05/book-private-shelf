@@ -13,8 +13,6 @@ export interface AuroraHeroProps extends React.HTMLAttributes<HTMLDivElement> {
 export function AuroraHero({
   title = "An awesome title",
   className,
-  // accepted for API compatibility; no switch is rendered
-  showSwitch: _showSwitch,
   ...props
 }: AuroraHeroProps) {
 

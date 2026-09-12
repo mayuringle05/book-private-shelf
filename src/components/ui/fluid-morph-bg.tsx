@@ -85,23 +85,20 @@ export function FluidMorphBg({
         viewBox={viewBox}
       >
         {pathsData.map((dList, index) => {
-          // SVG path `d` strings can't be interpolated by framer-motion (it
-          // emits d="undefined" mid-frame), so the organic drift is done with
-          // interpolable CSS transforms instead of path morphing.
-          const drift = [
-            { x: 0, y: 0, s: 1 },
-            { x: index % 2 ? -46 : 44, y: index % 3 ? 30 : -34, s: 1.05 },
-          ];
-          const pathDuration = duration + (index % 3) * 0.5;
-          const delay = (index % 4) * 0.2;
+          // Each path gets a random duration variation for more organic feel (like original script did)
+          // To keep it simple in React/Framer Motion and avoid hydration issues, 
+          // we use the duration prop as a base and vary slightly based on index.
+          const variance = (index % 3) * 0.5; // add 0, 0.5, or 1 sec
+          const pathDuration = duration + variance;
+          const delay = (index % 4) * 0.2; // slight delay offsets
 
           return (
-            <motion.g
+            <motion.path
               key={index}
+              d={dList[0]}
+              fill={colors[index % colors.length]}
               animate={{
-                x: drift.map((d) => d.x),
-                y: drift.map((d) => d.y),
-                scale: drift.map((d) => d.s),
+                d: dList,
               }}
               transition={{
                 duration: pathDuration,
@@ -110,10 +107,7 @@ export function FluidMorphBg({
                 ease: "easeInOut",
                 delay: delay,
               }}
-              style={{ originX: "720px", originY: "400px" }}
-            >
-              <path d={dList[0]} fill={colors[index % colors.length]} />
-            </motion.g>
+            />
           );
         })}
       </svg>
