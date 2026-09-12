@@ -1,37 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1200" role="img" aria-labelledby="title desc">
-  <title id="title">Magnetic Presence — BOOK</title>
-  <desc id="desc">Editorial book cover in warm umber with a precise orbital line system.</desc>
-  <defs>
-    <filter id="paper" x="-10%" y="-10%" width="120%" height="120%">
-      <feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="3" seed="18" result="n"/>
-      <feColorMatrix in="n" type="saturate" values="0" result="mono"/>
-      <feComponentTransfer in="mono" result="soft"><feFuncA type="table" tableValues="0 0.055"/></feComponentTransfer>
-      <feBlend in="SourceGraphic" in2="soft" mode="soft-light"/>
-    </filter>
-  </defs>
-  <rect width="800" height="1200" fill="#8E4F36"/>
-  <g filter="url(#paper)">
-    <rect x="44" y="44" width="712" height="1112" fill="none" stroke="#F3EADD" stroke-opacity=".38"/>
-    <text x="76" y="102" fill="#F8F0E5" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="700" letter-spacing="8">BOOK</text>
-    <text x="724" y="102" fill="#F8F0E5" font-family="Arial,Helvetica,sans-serif" font-size="18" text-anchor="end" letter-spacing="4">VOL. 01</text>
-    <line x1="76" y1="139" x2="724" y2="139" stroke="#F3EADD" stroke-opacity=".42"/>
-
-    <g transform="translate(405 445) rotate(-17)" fill="none" stroke="#F7EEE2">
-      <ellipse rx="250" ry="128" stroke-width="1.5" stroke-opacity=".72"/>
-      <ellipse rx="205" ry="92" stroke-width="1" stroke-opacity=".42"/>
-      <ellipse rx="145" ry="60" stroke-width="1" stroke-opacity=".28"/>
-      <path d="M-285 0H285" stroke-width="1" stroke-opacity=".28"/>
-      <path d="M0-178V178" stroke-width="1" stroke-opacity=".22"/>
-      <circle cx="0" cy="0" r="20" fill="#F7EEE2" stroke="none"/>
-      <circle cx="0" cy="0" r="49" stroke-width="1" stroke-opacity=".5"/>
-    </g>
-
-    <text x="76" y="785" fill="#F8F0E5" font-family="Georgia,'Times New Roman',serif" font-size="26" font-style="italic">Confidence people can feel</text>
-    <text x="76" y="818" fill="#F8F0E5" font-family="Georgia,'Times New Roman',serif" font-size="26" font-style="italic">before you say a word.</text>
-    <text x="72" y="930" fill="#FFF8EF" font-family="Georgia,'Times New Roman',serif" font-size="83" letter-spacing="-3">MAGNETIC</text>
-    <text x="72" y="1015" fill="#FFF8EF" font-family="Georgia,'Times New Roman',serif" font-size="83" letter-spacing="-3">PRESENCE</text>
-    <line x1="76" y1="1072" x2="724" y2="1072" stroke="#F3EADD" stroke-opacity=".42"/>
-    <text x="76" y="1114" fill="#F8F0E5" font-family="Arial,Helvetica,sans-serif" font-size="17" letter-spacing="4">THE PRIVATE SHELF</text>
-    <text x="724" y="1114" fill="#F8F0E5" font-family="Arial,Helvetica,sans-serif" font-size="17" text-anchor="end" letter-spacing="3">ORIGINAL EDITION</text>
-  </g>
+  <title id="title">Magnetic Presence — BOOK</title><desc id="desc">Editorial book cover in burnished copper with a precise orbital line system.</desc>
+  <defs><filter id="paper" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="3" seed="18" result="n"/><feColorMatrix in="n" type="saturate" values="0" result="mono"/><feComponentTransfer in="mono" result="soft"><feFuncA type="table" tableValues="0 0.055"/></feComponentTransfer><feBlend in="SourceGraphic" in2="soft" mode="soft-light"/></filter></defs>
+  <rect width="800" height="1200" fill="#7C4334"/>
+  <g filter="url(#paper)"><rect x="44" y="44" width="712" height="1112" fill="none" stroke="#F3EDE3" stroke-opacity=".38"/><text x="76" y="102" fill="#F3EDE3" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="700" letter-spacing="8">BOOK</text><text x="724" y="102" fill="#F3EDE3" font-family="Arial,Helvetica,sans-serif" font-size="18" text-anchor="end" letter-spacing="4">VOL. 01</text><line x1="76" y1="139" x2="724" y2="139" stroke="#F3EDE3" stroke-opacity=".42"/>
+  <g transform="translate(405 445) rotate(-17)" fill="none" stroke="#F3EDE3"><ellipse rx="250" ry="128" stroke-width="1.5" stroke-opacity=".72"/><ellipse rx="205" ry="92" stroke-width="1" stroke-opacity=".42"/><ellipse rx="145" ry="60" stroke-width="1" stroke-opacity=".28"/><path d="M-285 0H285" stroke-width="1" stroke-opacity=".28"/><path d="M0-178V178" stroke-width="1" stroke-opacity=".22"/><circle cx="0" cy="0" r="20" fill="#F3EDE3" stroke="none"/><circle cx="0" cy="0" r="49" stroke-width="1" stroke-opacity=".5"/></g>
+  <text x="76" y="785" fill="#F3EDE3" font-family="Georgia,'Times New Roman',serif" font-size="26" font-style="italic">Confidence people can feel</text><text x="76" y="818" fill="#F3EDE3" font-family="Georgia,'Times New Roman',serif" font-size="26" font-style="italic">before you say a word.</text><text x="72" y="930" fill="#FFF8EF" font-family="Georgia,'Times New Roman',serif" font-size="83" letter-spacing="-3">MAGNETIC</text><text x="72" y="1015" fill="#FFF8EF" font-family="Georgia,'Times New Roman',serif" font-size="83" letter-spacing="-3">PRESENCE</text><line x1="76" y1="1072" x2="724" y2="1072" stroke="#F3EDE3" stroke-opacity=".42"/><text x="76" y="1114" fill="#F3EDE3" font-family="Arial,Helvetica,sans-serif" font-size="17" letter-spacing="4">THE PRIVATE SHELF</text><text x="724" y="1114" fill="#F3EDE3" font-family="Arial,Helvetica,sans-serif" font-size="17" text-anchor="end" letter-spacing="3">ORIGINAL EDITION</text></g>
 </svg>

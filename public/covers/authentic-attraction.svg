@@ -1,37 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1200" role="img" aria-labelledby="title desc">
-  <title id="title">Authentic Attraction — BOOK</title>
-  <desc id="desc">Editorial ivory book cover with overlapping plum and copper forms representing mutual connection.</desc>
-  <defs>
-    <filter id="paper" x="-10%" y="-10%" width="120%" height="120%">
-      <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="3" seed="31" result="n"/>
-      <feColorMatrix in="n" type="saturate" values="0" result="mono"/>
-      <feComponentTransfer in="mono" result="soft"><feFuncA type="table" tableValues="0 0.04"/></feComponentTransfer>
-      <feBlend in="SourceGraphic" in2="soft" mode="multiply"/>
-    </filter>
-  </defs>
-  <rect width="800" height="1200" fill="#E9E1D5"/>
-  <g filter="url(#paper)">
-    <rect x="44" y="44" width="712" height="1112" fill="none" stroke="#2B2423" stroke-opacity=".26"/>
-    <text x="76" y="102" fill="#221D1D" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="700" letter-spacing="8">BOOK</text>
-    <text x="724" y="102" fill="#221D1D" font-family="Arial,Helvetica,sans-serif" font-size="18" text-anchor="end" letter-spacing="4">VOL. 02</text>
-    <line x1="76" y1="139" x2="724" y2="139" stroke="#2B2423" stroke-opacity=".25"/>
-
-    <g transform="translate(400 433)">
-      <circle cx="-90" cy="0" r="177" fill="#806A97" fill-opacity=".92"/>
-      <circle cx="105" cy="0" r="177" fill="#C57F5C" fill-opacity=".88"/>
-      <path d="M8-149 C83-93 109-15 89 69 C73 135 34 180 8 198 C-19 179-58 135-73 69 C-94-15-67-93 8-149Z" fill="#282126" fill-opacity=".92"/>
-      <circle cx="8" cy="0" r="238" fill="none" stroke="#282126" stroke-opacity=".24"/>
-      <circle cx="8" cy="0" r="275" fill="none" stroke="#282126" stroke-opacity=".12"/>
-      <path d="M-300 0H316" stroke="#282126" stroke-opacity=".18"/>
-      <path d="M8-295V295" stroke="#282126" stroke-opacity=".18"/>
-    </g>
-
-    <text x="76" y="784" fill="#3D3536" font-family="Georgia,'Times New Roman',serif" font-size="26" font-style="italic">Connection without pretending</text>
-    <text x="76" y="817" fill="#3D3536" font-family="Georgia,'Times New Roman',serif" font-size="26" font-style="italic">to be someone else.</text>
-    <text x="72" y="925" fill="#211C1D" font-family="Georgia,'Times New Roman',serif" font-size="73" letter-spacing="-3">AUTHENTIC</text>
-    <text x="72" y="1004" fill="#211C1D" font-family="Georgia,'Times New Roman',serif" font-size="73" letter-spacing="-3">ATTRACTION</text>
-    <line x1="76" y1="1072" x2="724" y2="1072" stroke="#2B2423" stroke-opacity=".25"/>
-    <text x="76" y="1114" fill="#302829" font-family="Arial,Helvetica,sans-serif" font-size="17" letter-spacing="4">THE PRIVATE SHELF</text>
-    <text x="724" y="1114" fill="#302829" font-family="Arial,Helvetica,sans-serif" font-size="17" text-anchor="end" letter-spacing="3">ORIGINAL EDITION</text>
-  </g>
+  <title id="title">Authentic Attraction — BOOK</title><desc id="desc">Editorial ivory book cover with overlapping oxblood and copper forms representing mutual connection.</desc>
+  <defs><filter id="paper" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="3" seed="31" result="n"/><feColorMatrix in="n" type="saturate" values="0" result="mono"/><feComponentTransfer in="mono" result="soft"><feFuncA type="table" tableValues="0 0.04"/></feComponentTransfer><feBlend in="SourceGraphic" in2="soft" mode="multiply"/></filter></defs>
+  <rect width="800" height="1200" fill="#F0E8DC"/><g filter="url(#paper)"><rect x="44" y="44" width="712" height="1112" fill="none" stroke="#181411" stroke-opacity=".26"/><text x="76" y="102" fill="#181411" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="700" letter-spacing="8">BOOK</text><text x="724" y="102" fill="#181411" font-family="Arial,Helvetica,sans-serif" font-size="18" text-anchor="end" letter-spacing="4">VOL. 02</text><line x1="76" y1="139" x2="724" y2="139" stroke="#181411" stroke-opacity=".25"/>
+  <g transform="translate(400 433)"><circle cx="-90" cy="0" r="177" fill="#682F2D" fill-opacity=".94"/><circle cx="105" cy="0" r="177" fill="#C98762" fill-opacity=".9"/><path d="M8-149 C83-93 109-15 89 69 C73 135 34 180 8 198 C-19 179-58 135-73 69 C-94-15-67-93 8-149Z" fill="#181411" fill-opacity=".93"/><circle cx="8" cy="0" r="238" fill="none" stroke="#181411" stroke-opacity=".24"/><circle cx="8" cy="0" r="275" fill="none" stroke="#181411" stroke-opacity=".12"/><path d="M-300 0H316" stroke="#181411" stroke-opacity=".18"/><path d="M8-295V295" stroke="#181411" stroke-opacity=".18"/></g>
+  <text x="76" y="784" fill="#403632" font-family="Georgia,'Times New Roman',serif" font-size="26" font-style="italic">Connection without pretending</text><text x="76" y="817" fill="#403632" font-family="Georgia,'Times New Roman',serif" font-size="26" font-style="italic">to be someone else.</text><text x="72" y="925" fill="#181411" font-family="Georgia,'Times New Roman',serif" font-size="73" letter-spacing="-3">AUTHENTIC</text><text x="72" y="1004" fill="#181411" font-family="Georgia,'Times New Roman',serif" font-size="73" letter-spacing="-3">ATTRACTION</text><line x1="76" y1="1072" x2="724" y2="1072" stroke="#181411" stroke-opacity=".25"/><text x="76" y="1114" fill="#302825" font-family="Arial,Helvetica,sans-serif" font-size="17" letter-spacing="4">THE PRIVATE SHELF</text><text x="724" y="1114" fill="#302825" font-family="Arial,Helvetica,sans-serif" font-size="17" text-anchor="end" letter-spacing="3">ORIGINAL EDITION</text></g>
 </svg>

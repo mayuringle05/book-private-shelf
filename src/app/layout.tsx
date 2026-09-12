@@ -1,6 +1,13 @@
 import type { Metadata, Viewport } from "next";
+import "@fontsource-variable/geist/wght.css";
+import "@fontsource-variable/geist-mono/wght.css";
+import "@fontsource/instrument-serif/400.css";
+import "@fontsource/instrument-serif/400-italic.css";
+import "@fontsource-variable/newsreader/wght.css";
+import "@fontsource-variable/newsreader/wght-italic.css";
 import "./globals.css";
 import { ThemeProvider } from "@/components/site/theme-provider";
+import { PageExperience } from "@/components/site/page-experience";
 
 export const metadata: Metadata = {
   title: { default: "BOOK — The Private Shelf", template: "%s — BOOK" },
@@ -14,7 +21,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#080706",
+  themeColor: "#090807",
   colorScheme: "dark",
 };
 
@@ -22,7 +29,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
       <body>
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <PageExperience>{children}</PageExperience>
+        </ThemeProvider>
       </body>
     </html>
   );

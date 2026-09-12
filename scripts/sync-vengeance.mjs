@@ -59,4 +59,21 @@ if (generateSource === originalGenerateSource) {
 }
 
 writeFileSync(generateButtonPath, generateSource);
-console.log("Vengeance UI synced from the locked registry commit. BOOK copy re-skin applied without changing animation logic.");
+
+// Instrument Serif has fine hairlines that need a gentler alpha threshold than the
+// heavier demo face used upstream. Keep Vengeance's GSAP/SplitText/SVG-filter reveal,
+// but remove permanent edge blur and lower the alpha cutoff so desktop and mobile
+// editorial type both survive the filter cleanly.
+const gooeyPath = resolve("src/components/ui/gooey-text-reveal.tsx");
+let gooeySource = readFileSync(gooeyPath, "utf8");
+const originalGooeySource = gooeySource;
+gooeySource = gooeySource
+  .replace("const LINE_EDGE_BLUR = 0.4;", "const LINE_EDGE_BLUR = 0;")
+  .replace("0 0 0 255 -140", "0 0 0 255 -72");
+
+if (gooeySource === originalGooeySource || !gooeySource.includes("const LINE_EDGE_BLUR = 0;") || !gooeySource.includes("0 0 0 255 -72")) {
+  throw new Error("Pinned Gooey Text Reveal source changed unexpectedly; BOOK serif-compatibility patch was not fully applied.");
+}
+
+writeFileSync(gooeyPath, gooeySource);
+console.log("Vengeance UI synced from the locked registry commit. BOOK copy and editorial-serif compatibility patches applied without replacing upstream animation logic.");
